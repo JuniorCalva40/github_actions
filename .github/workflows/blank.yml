@@ -16,9 +16,20 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
+    env:
+      platform: aws
+      region: us-east-1
+      account: 13466
+
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: "Display Message"
         run: echo "Hello"
+
+      - name: "Show Variables"
+        run: |
+          echo "platform: ${{env.platform}}"
+          echo "region: ${{env.region}}"
+          echo "account: ${{env.account}}"
